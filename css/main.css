@@ -90,6 +90,10 @@ body {
   content: "\f074";
 }
 
+.fa.icon--cus--sequence:before {
+  content: "\f178";
+}
+
 .fa.icon--cus--next:before {
   content: "\f054";
 }
