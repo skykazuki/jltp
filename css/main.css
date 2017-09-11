@@ -4,6 +4,11 @@ body {
   font-size: 16px;
 }
 
+.hearder--sub {
+  font-size: 0.8em;
+  margin-left: 20px;
+}
+
 .header_functions {
   margin-top: 50px;
 }
@@ -183,4 +188,8 @@ li.word:hover .word--toolbar {
 
 .footer {
  height: 100px;
+}
+
+[v-cloak] {
+  display: none;
 }
