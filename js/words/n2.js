@@ -3,7 +3,8 @@ source:
  1.http://www.e-japanese.biz/%E6%97%A5%E6%96%87%E6%AA%A2%E5%AE%9An2%E7%B4%9A%E5%96%AE%E5%AD%97%E4%B8%80%E8%A6%A71-520.html
  2.http://www.e-japanese.biz/%E6%97%A5%E6%96%87%E6%AA%A2%E5%AE%9An2%E7%B4%9A%E5%96%AE%E5%AD%97%E4%B8%80%E8%A6%A72-523.html
 */
-var N2_WORDS = [
+var WORDS = WORDS || {};
+WORDS.N2 = [
   ['吃驚的', '呆れる', 'あきれる'],
   ['憧憬', '憧れる', 'あこがれる'],
   ['保管', '預かる', 'あずかる'],

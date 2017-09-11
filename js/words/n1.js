@@ -3,7 +3,8 @@ source:
  1.http://www.e-japanese.biz/%E6%97%A5%E6%96%87%E6%AA%A2%E5%AE%9An1%E7%B4%9A%E5%96%AE%E5%AD%97%E4%B8%80%E8%A6%A71-525.html
  2.http://www.e-japanese.biz/%E6%97%A5%E6%96%87%E6%AA%A2%E5%AE%9An1%E7%B4%9A%E5%96%AE%E5%AD%97%E4%B8%80%E8%A6%A72-528.html
 */
-var N1_WORDS = [
+var WORDS = WORDS || {};
+WORDS.N1 = [
   ['展現，顯露出', '明かす', 'あかす'],
   ['變紅,紅起來', '赤らむ', 'あからむ'],
   ['嘲笑，揶揄，奚落', 'あざ笑う', 'あざわらう'],

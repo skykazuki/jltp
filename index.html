@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>JLTP</title>
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap3.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/vue/vue.min.js"></script>
+    <script src="js/words/n1.js"></script>
+    <script src="js/words/n2.js"></script>
+    <script src="js/seedrandom/seedrandom.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header_functions">
+
+        <div class="btn-group">
+          <button @click="toggleOnlyImportant" type="button" :class="{active: onlyImportant}" class="btn btn-danger btn-lg">
+            <i class="icon--cus--important fa" aria-hidden="true"></i>
+            <span class="badge">{{importantWords.length}}</span>
+          </button>
+          <button @click="toggleAlsoChecked" type="button" :class="{active: alsoChecked}" class="btn btn-info btn-lg">
+            <i class="icon--cus--checked fa" aria-hidden="true"></i>
+            <span class="badge">{{checkedWords.length}}</span>
+          </button>
+        </div>
+        <div class="btn-group">
+          <button v-for="cat in categories" @click="toggleCategory(cat)" :class="{ active: (categoryShown.indexOf(cat) >= 0)}" type="button" class="btn btn-primary btn-lg">{{cat}}</button>
+        </div>
+        <div class="btn-group">
+          <button @click="shuffle" type="button" class="btn btn-warning btn-lg">
+            <i class="icon--cus--shuffle fa" aria-hidden="true"></i>
+          </button>
+        </div>
+        <div class="btn-group pull-right">
+          <button @click="toggleAllYomikata" type="button" :class="{ active: yomikataAllShown }" class="btn btn-primary btn-lg">あ</button>
+          <button @click="toggleAllTranslation" type="button" :class="{ active: translationAllShown }" class="btn btn-primary btn-lg">譯</button>
+        </div>
+      </div>
+      <div class="paging">
+        <button @click="goPrevPage()" type="button" :class="{ 'visibility-hidden': curPage === 0 }" class="btn btn-link btn-lg paging--page-previous">
+          <i class="icon--cus--previous fa" aria-hidden="true"></i>
+        </button>
+        <template v-for="n in totalPages">
+          <button @click="goPage(n)" type="button" :class="{ current: n === (curPage + 1) }" class="btn btn-link btn-lg paging--page-btn">{{n}}</button>
+        </template>
+        <button @click="goNextPage()" type="button" :class="{ 'visibility-hidden': (curPage >= (totalPages - 1)) }" class="btn btn-link btn-lg paging--page-next">
+          <i class="icon--cus--next fa" aria-hidden="true"></i>
+        </button>
+      </div>
+      <ul class="word_list list-unstyled">
+        </div-->
+        <li v-for="word in pageWords" class="word">
+          <h3 class="word--head">{{ word.title }}<span :class="{ shown: word.yomikataShown }" class="word--yomikata" >{{ word.yomikata }}</span></h3>
+          <div class="word--toolbar">
+            <button @click="toggleYomikata(word)" type="button" :class="{ active: word.yomikataShown }" class="btn btn-primary btn-nm">あ</button>
+            <button @click="toggleTranslation(word)" type="button" :class="{ active: word.translationShown }" class="btn btn-primary btn-nm">譯</button>
+            <button @click="toggleImportant(word)" :class="{ active: word.isImportant }" type="button" class="btn btn-danger btn-nm">
+              <i class="icon--cus--important fa" aria-hidden="true"></i>
+            </button>
+            <button @click="toggleChecked(word)" :class="{ active: word.isChecked }" type="button" class="btn btn-info btn-nm">
+              <i class="icon--cus--checked fa" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div :class="{ shown: word.translationShown }" class="word--translation">{{ word.translation }}</div>
+          <div class="word--marks">
+            <i :class="{ shown: word.isImportant }" class="icon--cus--important fa" aria-hidden="true"></i>
+            <i :class="{ shown: word.isChecked }" class="icon--cus--checked fa" aria-hidden="true"></i>
+          </div>
+          <span class="word--index"><span class="word--category">{{ word.category }}</span>{{ word.index }}</span>
+        </li>
+      </ul>
+      <div class="paging">
+        <button @click="goPrevPage()" type="button" :class="{ 'visibility-hidden': curPage === 0 }" class="btn btn-link btn-lg paging--page-previous">
+          <i class="icon--cus--previous fa" aria-hidden="true"></i>
+        </button>
+        <template v-for="n in totalPages">
+          <button @click="goPage(n)" type="button" :class="{ current: n === (curPage + 1) }" class="btn btn-link btn-lg paging--page-btn">{{n}}</button>
+        </template>
+        <button @click="goNextPage()" type="button" :class="{ 'visibility-hidden': (curPage >= (totalPages - 1)) }" class="btn btn-link btn-lg paging--page-next">
+          <i class="icon--cus--next fa" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div class="footer"></div>
+    </div>
+    <script src="js/main.js"></script>
+  </body>
+</html>

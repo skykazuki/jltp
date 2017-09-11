@@ -1,0 +1,186 @@
+body {
+  font-family: Ubuntu, Arial, 'Hiragino Kaku Gothic ProN', Meiryo, Verdana, sans-serif;
+  background: #e9fffc;
+  font-size: 16px;
+}
+
+.header_functions {
+  margin-top: 50px;
+}
+
+.paging {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.btn.btn-lg {
+  min-width: 60px;
+}
+
+.btn.btn-nm {
+  min-width: 40px;
+}
+
+.btn.btn-primary:focus, .btn.btn-primary:hover, .btn.btn-primary:active {
+  background-color: #337ab7;
+  border-color: #2e6da4;
+}
+
+.btn.btn-primary.active:focus, .btn.btn-primary.active:hover, .btn.btn-primary.active:active {
+  background-color: #286090;
+  border-color: #204d74;
+}
+
+.btn.btn-info:focus, .btn.btn-info:hover, .btn.btn-info:active {
+  background-color: #5bc0de;
+  border-color: #46b8da;
+}
+
+.btn.btn-info.active:focus, .btn.btn-info.active:hover, .btn.btn-info.active:active {
+  background-color: #31b0d5;
+  border-color: #269abc;
+}
+
+.btn.btn-danger:focus, .btn.btn-danger:hover, .btn.btn-danger:active {
+  background-color: #d9534f;
+  border-color: #d43f3a;
+}
+
+.btn.btn-danger.active:focus, .btn.btn-danger.active:hover, .btn.btn-danger.active:active {
+  background-color: #c9302c;
+  border-color: #ac2925;
+}
+
+.btn:focus,.btn:active {
+  outline: none !important;
+}
+
+.btn.btn-lg.paging--page-btn, .btn.btn-lg.paging--page-next, .btn.btn-lg.paging--page-previous {
+  min-width: 0;
+  width: 50px;
+}
+
+.paging--page-next.visibility-hidden, .paging--page-previous.visibility-hidden {
+  visibility: hidden;
+}
+
+.paging--page-btn.current {
+  background: #dbf7f9;
+  border-radius: 25px;
+}
+
+.fa.icon--cus--important:before {
+  content: "\f12a";
+}
+
+.fa.icon--cus--checked:before {
+  content: "\f00c";
+}
+
+.fa.icon--cus--previous:before {
+  content: "\f053";
+}
+
+.fa.icon--cus--shuffle:before {
+  content: "\f074";
+}
+
+.fa.icon--cus--next:before {
+  content: "\f054";
+}
+
+li.word {
+  background: #dbf7f9;
+  padding: 20px 25px;
+  border-radius: 10px;
+  margin-top: 30px;
+  min-height: 180px;
+  position: relative;
+}
+
+li.word.even {
+  background: #dbf7f9;
+}
+
+li.word:hover {
+  background: #c8f0f0;
+}
+
+.word--head {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.word--yomikata {
+  font-size: 0.6em;
+  margin: 0 10px;
+  display: none;
+}
+.word--yomikata.shown {
+  display: inline-block;
+}
+
+
+.word--toolbar {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  opacity: 0.2;
+}
+
+li.word:hover .word--toolbar {
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+.word--translation {
+  font-size: 1em;
+  display: none;
+}
+.word--translation.shown {
+  display: block;
+}
+
+.word--index {
+  position: absolute;
+  bottom: 4px;
+  right: 10px;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+.word--category {
+  margin-right: 5px;
+  font-size: 0.5em;
+  opacity: 0.3;
+}
+
+.word--marks {
+  position: absolute;
+  bottom: 5px;
+  left: 14px;
+}
+
+.word--marks .icon--cus--important,
+.word--marks .icon--cus--checked {
+  font-size: 1.5em;
+  margin-right: 6px;
+  display: none;
+}
+
+.word--marks .icon--cus--important.shown,
+.word--marks .icon--cus--checked.shown {
+  display: inline-block;
+}
+
+.word--marks .icon--cus--important {
+  color: #c9302c;
+}
+
+.word--marks .icon--cus--checked {
+  color: #31b0d5;
+}
+
+.footer {
+ height: 100px;
+}
