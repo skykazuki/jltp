@@ -13,7 +13,8 @@
     <script src="js/seedrandom/seedrandom.min.js"></script>
   </head>
   <body>
-    <div class="container">
+    <div class="container" v-cloak>
+      <h1>JLTP<span class="hearder--sub">文字、語彙</span></h1>
       <div class="header_functions">
 
         <div class="btn-group">
@@ -39,7 +40,7 @@
           <button @click="toggleAllTranslation" type="button" :class="{ active: translationAllShown }" class="btn btn-primary btn-lg">譯</button>
         </div>
       </div>
-      <div class="paging">
+      <div class="paging" v-if="totalPages > 1">
         <button @click="goPrevPage()" type="button" :class="{ 'visibility-hidden': curPage === 0 }" class="btn btn-link btn-lg paging--page-previous">
           <i class="icon--cus--previous fa" aria-hidden="true"></i>
         </button>
@@ -72,7 +73,7 @@
           <span class="word--index"><span class="word--category">{{ word.category }}</span>{{ word.index }}</span>
         </li>
       </ul>
-      <div class="paging">
+      <div class="paging" v-if="totalPages > 1">
         <button @click="goPrevPage()" type="button" :class="{ 'visibility-hidden': curPage === 0 }" class="btn btn-link btn-lg paging--page-previous">
           <i class="icon--cus--previous fa" aria-hidden="true"></i>
         </button>
