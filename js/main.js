@@ -219,6 +219,9 @@
         this.shuffledWords = this.words.slice(0);
         save();
       },
+      goDictionary: function(word) {
+        window.open('https://dictionary.goo.ne.jp/srch/all/' + encodeURI(word) + '/m0u/', 'JLTP');
+      },
     },
   });
 

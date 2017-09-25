@@ -55,26 +55,30 @@
         </button>
       </div>
       <ul class="word_list list-unstyled">
-        </div-->
-        <li v-for="word in pageWords" class="word">
-          <h3 class="word--head">{{ word.title }}<span :class="{ shown: word.yomikataShown }" class="word--yomikata" >{{ word.yomikata }}</span></h3>
-          <div class="word--toolbar">
-            <button @click="toggleYomikata(word)" type="button" :class="{ active: word.yomikataShown }" class="btn btn-primary btn-nm">あ</button>
-            <button @click="toggleTranslation(word)" type="button" :class="{ active: word.translationShown }" class="btn btn-primary btn-nm">譯</button>
-            <button @click="toggleImportant(word)" :class="{ active: word.isImportant }" type="button" class="btn btn-danger btn-nm">
-              <i class="icon--cus--important fa" aria-hidden="true"></i>
-            </button>
-            <button @click="toggleChecked(word)" :class="{ active: word.isChecked }" type="button" class="btn btn-info btn-nm">
-              <i class="icon--cus--checked fa" aria-hidden="true"></i>
-            </button>
-          </div>
-          <div :class="{ shown: word.translationShown }" class="word--translation">{{ word.translation }}</div>
-          <div class="word--marks">
-            <i :class="{ shown: word.isImportant }" class="icon--cus--important fa" aria-hidden="true"></i>
-            <i :class="{ shown: word.isChecked }" class="icon--cus--checked fa" aria-hidden="true"></i>
-          </div>
-          <span class="word--index"><span class="word--category">{{ word.category }}</span>{{ word.index }}</span>
-        </li>
+        <template v-for="(word, index) in pageWords">
+          <div class="word--line" :class="{ shown: (index !== 0) && (index % 10 === 0) }"><span>{{index + (curPage * 300)}}</span></div>
+          <li class="word">
+            <h3 class="word--head"><a href="javascript: void(0);" @click="goDictionary(word.title)" class="word--dictionary">{{ word.title }}</a><span :class="{ shown: word.yomikataShown }" class="word--yomikata" >{{ word.yomikata }}</span></h3>
+            <div class="word--toolbar">
+              <!--
+              <button @click="toggleYomikata(word)" type="button" :class="{ active: word.yomikataShown }" class="btn btn-primary btn-nm">あ</button>
+              <button @click="toggleTranslation(word)" type="button" :class="{ active: word.translationShown }" class="btn btn-primary btn-nm">譯</button>
+              -->
+              <button @click="toggleImportant(word)" :class="{ active: word.isImportant }" type="button" class="btn btn-danger btn-nm">
+                <i class="icon--cus--important fa" aria-hidden="true"></i>
+              </button>
+              <button @click="toggleChecked(word)" :class="{ active: word.isChecked }" type="button" class="btn btn-info btn-nm">
+                <i class="icon--cus--checked fa" aria-hidden="true"></i>
+              </button>
+            </div>
+            <div :class="{ shown: word.translationShown }" class="word--translation">{{ word.translation }}</div>
+            <div class="word--marks">
+              <i :class="{ shown: word.isImportant }" class="icon--cus--important fa" aria-hidden="true"></i>
+              <i :class="{ shown: word.isChecked }" class="icon--cus--checked fa" aria-hidden="true"></i>
+            </div>
+            <span class="word--index"><span class="word--category">{{ word.category }}</span>{{ word.index }}</span>
+          </li>
+        </template>
       </ul>
       <div class="paging" v-if="totalPages > 1">
         <button @click="goPrevPage()" type="button" :class="{ 'visibility-hidden': curPage === 0 }" class="btn btn-link btn-lg paging--page-previous">

@@ -105,6 +105,7 @@ li.word {
   margin-top: 30px;
   min-height: 180px;
   position: relative;
+  transition: background 0.3s;
 }
 
 li.word.even {
@@ -120,13 +121,51 @@ li.word:hover {
   margin-bottom: 20px;
 }
 
+.word--dictionary {
+  color: black;
+}
+
+.word--dictionary:hover, .word--dictionary:active {
+  color: #337ab7;
+}
+
+.word--dictionary:focus {
+  color: black;
+  text-decoration: none;
+}
+
 .word--yomikata {
   font-size: 0.6em;
   margin: 0 10px;
-  display: none;
+  transition: opacity 0.3s;
+  opacity: 0;
 }
 .word--yomikata.shown {
-  display: inline-block;
+  opacity: 1;
+}
+
+.word:hover .word--yomikata {
+  opacity: 1;
+}
+
+.word--line {
+  border-top: 1px dashed;
+  width: 10%;
+  margin-top: 30px;
+  border-color: #888888;
+  position: relative;
+  display: none;
+}
+
+.word--line.shown {
+  display: block;
+}
+
+.word--line span {
+  position: absolute;
+  top: -11px;
+  left: 110%;
+  color: #888888;
 }
 
 
@@ -144,10 +183,15 @@ li.word:hover .word--toolbar {
 
 .word--translation {
   font-size: 1em;
-  display: none;
+  transition: opacity 0.2s;
+  opacity: 0;
 }
 .word--translation.shown {
-  display: block;
+  opacity: 1;
+}
+
+.word:hover .word--translation {
+  opacity: 1;
 }
 
 .word--index {
