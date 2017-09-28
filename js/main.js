@@ -220,7 +220,7 @@
         save();
       },
       goDictionary: function(word) {
-        window.open('https://dictionary.goo.ne.jp/srch/all/' + encodeURI(word) + '/m0u/', 'JLTP');
+        window.open('https://dictionary.goo.ne.jp/srch/all/' + encodeURI(word.replace('-', '')) + '/m0u/', 'JLTP');
       },
     },
   });
